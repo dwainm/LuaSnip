@@ -38,7 +38,6 @@ local function load_files(ft, files, add_opts)
 			error(string.format("Failed to load %s\n: %s", file, func))
 		end
 
-
 		-- the loaded file may add snippets to these tables, they'll be
 		-- combined with the snippets returned regularly.
 		local file_added_snippets = {}
