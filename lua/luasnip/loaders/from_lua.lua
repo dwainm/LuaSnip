@@ -32,7 +32,7 @@ local M = {}
 local function load_files(ft, files, add_opts)
 	for _, file in ipairs(files) do
 		local load_ok, func = loadfile(file)
-		if not load_ok then
+		if not load_ok or not func then
 			log.error("Failed to load %s\n: %s", file, func)
 			error(string.format("Failed to load %s\n: %s", file, func))
 		end
