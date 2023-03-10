@@ -31,9 +31,8 @@ local M = {}
 
 local function load_files(ft, files, add_opts)
 	for _, file in ipairs(files) do
-		local func_string = path_mod.read_file(file)
-		local load_ok, func = pcall(loadstring, func_string)
-		if not load_ok or not func then
+		local func, error_msg = loadfile(file)
+		if error_msg then
 			log.error("Failed to load %s\n: %s", file, func)
 			error(string.format("Failed to load %s\n: %s", file, func))
 		end
